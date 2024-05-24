@@ -197,7 +197,7 @@ const Navigation = () => {
       </div>
       <div className="flex flex-col justify-around">
         <div
-          className={`flex justify-end mr-[-18px] pb-[30px] relative z-10 menu-list-arrow`}
+          className={`flex justify-end mr-[-18px] pb-[60px] relative z-10 menu-list-arrow`}
         >
           <Icons.rightArrow
             sx={{
@@ -212,7 +212,7 @@ const Navigation = () => {
             onClick={toggleHandler}
           />
         </div>
-        <div className="flex items-center pb-5">
+        {/* <div className="flex items-center pb-5">
           <div className="flex items-center justify-center min-w-[90px] h-[52px] menu-list-item">
             <Avatar sx={{ backgroundColor: "#f0bd46", color: "#000000" }}>
               <Image
@@ -229,7 +229,7 @@ const Navigation = () => {
           >
             John Doe
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
