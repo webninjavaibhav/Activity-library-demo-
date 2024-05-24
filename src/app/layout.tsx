@@ -12,6 +12,9 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Empowered Activity Library",
+  icons : {
+    icon : './icon.svg'
+  }
   // description: "Summary of selected contracts",
 };
 
@@ -23,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
       </head>
       <body className={roboto.className}>
         <ContextWrapper>{children}</ContextWrapper>
