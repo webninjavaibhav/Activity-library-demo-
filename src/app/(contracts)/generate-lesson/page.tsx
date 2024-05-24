@@ -100,7 +100,7 @@ const GenerateLesson = () => {
     let res = await response.json();
     setLoading(false);
 
-    if (res?.error) handleError();
+    if (res?.error) return handleError();
 
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -162,7 +162,7 @@ const GenerateLesson = () => {
                           <Icons.launch
                             onClick={() =>
                               window.open(
-                                "https://rabodis.glide.page/dl/6471c6",
+                                "https://rabodis.glide.page/dl/d8fc49",
                                 "_blank"
                               )
                             }
