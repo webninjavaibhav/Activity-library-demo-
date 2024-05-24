@@ -27,7 +27,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
       <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-
          <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
       </head>
       <body className={roboto.className}>

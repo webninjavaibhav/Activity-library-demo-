@@ -121,7 +121,7 @@ const Navigation = () => {
         <div className="flex justify-around bg-[white] p-[10px] rounded-t-2xl">
           <LogoIcon />
         </div>
-      <div className="flex flex-col gap-3 py-2 menu-list-container overflow-auto">
+      <div className="flex flex-col gap-3 py-2 menu-list-container overflow-y-scroll overflow-x-hidden">
         <div className="flex flex-col gap-2">
           {routeNav?.map((nav) => (
             <div key={nav?.name}>
