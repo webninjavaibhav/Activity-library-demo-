@@ -119,7 +119,7 @@ const Navigation = () => {
       } transition-all duration-[500ms] ease-in-out rounded-2xl text-[#fff] bg-[#233353] flex flex-col justify-between`}
     >
       <div className="flex flex-col gap-3 menu-list-container">
-        <div className="flex justify-around bg-[#17243A] p-[20px] rounded-t-2xl">
+        <div className="flex justify-around bg-[#001239] p-[20px] rounded-t-2xl">
           <LogoIcon />
         </div>
         <div className="flex flex-col gap-2">
