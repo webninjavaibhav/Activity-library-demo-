@@ -1,19 +1,38 @@
 "use client";
-import { useState, useRef, useEffect, FormEvent } from "react";
-import { Button } from "@/components/common/Button";
+import Image from "next/image";
+import { useDropzone } from "react-dropzone";
 import ReactMarkdown from "react-markdown";
+import { useState, useRef, useEffect, FormEvent } from "react";
 import { Avatar, Chip } from "@mui/material";
 import Icons from "@/components/common/Icons";
 import Input from "@/components/common/Input";
-import Image from "next/image";
+import { Button } from "@/components/common/Button";
 import UserImage from "../../../../public//images/userImage.jpeg";
 import VirtualAssistance from "../../../../public//images/virtual_assistant.png";
+import SelectedFiles from "@/components/SelectedFiles";
+
+type msgProp = {
+  role: string;
+  content: string;
+  files?: any;
+};
 
 const GenerateLesson = () => {
+  const [files, setFiles] = useState<any[]>([]);
+
+  const { acceptedFiles, open, getRootProps, getInputProps, inputRef } =
+    useDropzone({
+      noClick: true,
+      noKeyboard: true,
+      onDrop: (droppedFiles) => {
+        setFiles((prevFiles) => [...prevFiles, ...droppedFiles]);
+      },
+    });
+
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState([
-    { role: "assistant", content: "Hi there! How can I help?" },
+  const [messages, setMessages] = useState<msgProp[]>([
+    { role: "assistant", content: "Hi there! How can I help?", files: [] },
   ]);
 
   const messageListRef = useRef<HTMLDivElement>(null);
@@ -41,8 +60,17 @@ const GenerateLesson = () => {
       {
         role: "assistant",
         content: "Oops! There seems to be an error. Please try again.",
+        files: [],
       },
     ]);
+  };
+
+  const removeFile = (file: any) => {
+    setFiles((prevFiles) => prevFiles.filter((f: any) => f !== file));
+  };
+
+  const removeAll = () => {
+    setFiles([]);
   };
 
   // Handle form handlegenerate
@@ -55,8 +83,12 @@ const GenerateLesson = () => {
     }
 
     setLoading(true);
-    const context = [...messages, { role: "user", content: userInput }];
+    const context = [
+      ...messages,
+      { role: "user", content: userInput, files: files },
+    ];
     setMessages(context);
+    removeAll();
 
     const response = await fetch("/api/generate-lesson", {
       method: "POST",
@@ -72,7 +104,7 @@ const GenerateLesson = () => {
 
     setMessages((prevMessages) => [
       ...prevMessages,
-      { role: "assistant", content: res?.data?.response },
+      { role: "assistant", content: res?.data?.response, files: [] },
     ]);
   };
 
@@ -84,10 +116,9 @@ const GenerateLesson = () => {
             <div className="font-bold text-lg">
               Empowered Lesson Plan Generator
             </div>
-            <div>Empowered Lesson Plan Generator</div>
           </div>
 
-          <div className="w-full bg-white rounded-lg p-4 overflow-hidden h-[82vh] pt-2 overflow-y-scroll flex justify-center items-center">
+          <div className="w-full bg-white rounded-lg p-4 overflow-hidden h-[88vh] pt-2 overflow-y-scroll flex justify-center items-center">
             <div
               ref={messageListRef}
               className="w-full overflow-y-scroll h-full pb-[200px] "
@@ -104,10 +135,7 @@ const GenerateLesson = () => {
                               height: 24,
                             }}
                           >
-                            <Image
-                              src={VirtualAssistance}
-                              alt="Assistant"
-                            />
+                            <Image src={VirtualAssistance} alt="Assistant" />
                           </Avatar>
                         ) : (
                           <Avatar
@@ -116,31 +144,33 @@ const GenerateLesson = () => {
                               height: 28,
                             }}
                           >
-                            <Image
-                              src={UserImage}
-                              alt="User"
-                              layout="fill"
-                            />
+                            <Image src={UserImage} alt="User" layout="fill" />
                           </Avatar>
                         )}
-                        <ReactMarkdown className="mx-2">
-                          {message.content}
-                        </ReactMarkdown>
+                        <div className="block max-w-[calc(100vw_-_290px)] ">
+                          <ReactMarkdown className="mx-2">
+                            {message.content}
+                          </ReactMarkdown>
+                          <SelectedFiles
+                            acceptedFiles={message?.files}
+                            deleteFile={removeFile}
+                          />
+                        </div>
                       </div>
-                      {message.role === "assistant" ? (
+                      {message.role === "assistant" && index ? (
                         <div className="flex gap-3">
-                          <Chip
-                            label="Publish"
-                            size="small"
-                            sx={{
-                              backgroundColor:"#12D3CF",
-                              "&:hover": {
-                                backgroundColor: "#12D3CF"
-                              }
-                            }}
-                            onClick={()=>window.open("https://rabodis.glide.page/dl/6471c6" , "_blank")}
+                          <Icons.launch
+                            onClick={() =>
+                              window.open(
+                                "https://rabodis.glide.page/dl/6471c6",
+                                "_blank"
+                              )
+                            }
+                            className="cursor-pointer"
+                            sx={{ fontSize: 20, marginBottom: 0.3 }}
                           />
                           <Icons.copyIcon
+                            className="cursor-pointer"
                             sx={{ fontSize: 20, marginBottom: 0.3 }}
                           />
                         </div>
@@ -152,11 +182,23 @@ const GenerateLesson = () => {
             </div>
           </div>
           <div className="w-full bottom-[10px] absolute px-2">
+            <SelectedFiles
+              acceptedFiles={files}
+              deleteFile={removeFile}
+              isDeletable={true}
+            />
             <form
               onSubmit={handleGenerate}
               className="w-full flex justify-center items-center"
             >
-              <Icons.attachFileIcon fontSize="medium" />
+              <div {...getRootProps({ className: "dropzone" })}>
+                <input {...getInputProps()} />
+                <Icons.attachFileIcon
+                  className="cursor-pointer"
+                  onClick={open}
+                  fontSize="medium"
+                />
+              </div>
               <Input
                 value={userInput}
                 placeholder="Enter message"

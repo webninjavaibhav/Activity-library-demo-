@@ -30,7 +30,6 @@ const DropZone = (props: any) => {
           Drag and Drop your files here or{" "}
           <span
             className="text-[#12D3CF] text-center"
-            onClick={() => console.log("dddd")}
           >
             Upload
           </span>

@@ -132,7 +132,6 @@ const Search = () => {
   const endIndex = startIndex + 5;
   const displayedData = searchHints?.slice(startIndex, endIndex);
 
-  console.log("searchResult?.html", searchResult?.html?.length);
 
   return (
     <div className="grid bg-[#fff] rounded-xl p-5">

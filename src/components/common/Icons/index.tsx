@@ -25,6 +25,8 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DownloadIcon from '@mui/icons-material/Download';
+import CancelIcon from '@mui/icons-material/Cancel';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 export default {
   analysisIcon: AnalyticsIcon,
@@ -53,5 +55,7 @@ export default {
   attachFileIcon : AttachFileIcon,
   generateLessonIcon : AutoStoriesIcon,
   copyIcon :ContentCopyIcon,
-  download : DownloadIcon
+  download : DownloadIcon,
+  cancel : CancelIcon,
+  launch : RocketLaunchIcon
 };

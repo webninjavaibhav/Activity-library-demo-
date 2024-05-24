@@ -33,8 +33,8 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          AI Legal Counsel
+        <h1 className="text-3xl text-[#001239] font-bold mb-6 text-center">
+          Activity Library
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
