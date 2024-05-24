@@ -118,10 +118,10 @@ const Navigation = () => {
         fullNavigation ? "w-[350px]" : "w-[90px]"
       } transition-all duration-[500ms] ease-in-out rounded-2xl text-[#000] bg-[#fff8f8] flex flex-col justify-between`}
     >
-      <div className="flex flex-col gap-3 menu-list-container">
         <div className="flex justify-around bg-[white] p-[10px] rounded-t-2xl">
           <LogoIcon />
         </div>
+      <div className="flex flex-col gap-3 py-2 menu-list-container overflow-auto">
         <div className="flex flex-col gap-2">
           {routeNav?.map((nav) => (
             <div key={nav?.name}>

@@ -11,8 +11,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Contract Summary App",
-  description: "Summary of selected contracts",
+  title: "Empowered Activity Library",
+  // description: "Summary of selected contracts",
 };
 
 export default function RootLayout({
