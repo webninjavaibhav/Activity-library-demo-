@@ -114,7 +114,7 @@ const GenerateLesson = () => {
         <main className="relative">
           <div className="text-center pb-2">
             <div className="font-bold text-lg">
-              Empowered Lesson Plan Generator
+              Empowered AI PMM Content Generator
             </div>
           </div>
 

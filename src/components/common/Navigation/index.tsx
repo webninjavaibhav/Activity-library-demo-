@@ -40,12 +40,12 @@ const Navigation = () => {
     {
       name: "Generate Lesson",
       route: "/generate-lesson",
-      icon: <Icons.generateLessonIcon fontSize="medium" />,
+      icon: <Icons.generateLessonIcon sx={{color:"black"}} fontSize="medium" />,
     },
     {
       name: "People Tasks",
       route: "/people-tasks",
-      icon: <Icons.peopleIcon fontSize="medium" />,
+      icon: <Icons.peopleIcon sx={{color:"black"}} fontSize="medium" />,
     },
     {
       name: "Connectors",
@@ -70,7 +70,7 @@ const Navigation = () => {
     {
       name: "Insights Logs",
       route: "/insights-logs",
-      icon: <Icons.insightIcon fontSize="medium" />,
+      icon: <Icons.insightIcon sx={{color:"black"}} fontSize="medium" />,
     },
     {
       name: "Contract Analysis",
@@ -98,17 +98,17 @@ const Navigation = () => {
     {
       name: "Customer Support",
       route: "/customer-support",
-      icon: <Icons.customerIcon fontSize="medium" />,
+      icon: <Icons.customerIcon sx={{color:"black"}} fontSize="medium" />,
     },
     {
       name: "Settings",
       route: "/settings",
-      icon: <Icons.settingIcon fontSize="medium" />,
+      icon: <Icons.settingIcon sx={{color:"black"}} fontSize="medium" />,
     },
     {
       name: "Logout",
       route: "/logout",
-      icon: <Icons.logoutIcon fontSize="medium" />,
+      icon: <Icons.logoutIcon sx={{color:"black"}} fontSize="medium" />,
     },
   ];
 
@@ -116,10 +116,10 @@ const Navigation = () => {
     <div
       className={`${
         fullNavigation ? "w-[350px]" : "w-[90px]"
-      } transition-all duration-[500ms] ease-in-out rounded-2xl text-[#fff] bg-[#233353] flex flex-col justify-between`}
+      } transition-all duration-[500ms] ease-in-out rounded-2xl text-[#000] bg-[#fff8f8] flex flex-col justify-between`}
     >
       <div className="flex flex-col gap-3 menu-list-container">
-        <div className="flex justify-around bg-[#001239] p-[20px] rounded-t-2xl">
+        <div className="flex justify-around bg-[white] p-[10px] rounded-t-2xl">
           <LogoIcon />
         </div>
         <div className="flex flex-col gap-2">
@@ -145,7 +145,7 @@ const Navigation = () => {
                     className={`${fullNavigation ? "opacity-1" : "opacity-0"} 
                     ${
                       activeSection === nav?.route
-                        ? "text-[#fff]"
+                        ? "text-[#000]"
                         : "opacity-[0.6]"
                     } whitespace-nowrap overflow-hidden transition-all duration-[700ms] ease-in-out`}
                   >
