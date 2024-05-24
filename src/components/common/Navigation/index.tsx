@@ -40,12 +40,22 @@ const Navigation = () => {
     {
       name: "Generate Lesson",
       route: "/generate-lesson",
-      icon: <Icons.generateLessonIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.generateLessonIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
     {
       name: "People Tasks",
       route: "/people-tasks",
-      icon: <Icons.peopleIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.peopleIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
     {
       name: "Connectors",
@@ -70,7 +80,12 @@ const Navigation = () => {
     {
       name: "Insights Logs",
       route: "/insights-logs",
-      icon: <Icons.insightIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.insightIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
     {
       name: "Contract Analysis",
@@ -91,24 +106,39 @@ const Navigation = () => {
       name: "Legal Wiki",
       route: "/search",
       icon: <SearchIcon />,
-    }
+    },
   ];
 
   const settingNav = [
     {
       name: "Customer Support",
       route: "/customer-support",
-      icon: <Icons.customerIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.customerIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
     {
       name: "Settings",
       route: "/settings",
-      icon: <Icons.settingIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.settingIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
     {
       name: "Logout",
       route: "/logout",
-      icon: <Icons.logoutIcon sx={{color:"black"}} fontSize="medium" />,
+      icon: (
+        <Icons.logoutIcon
+          sx={{ color: "black" }}
+          fontSize="medium"
+        />
+      ),
     },
   ];
 
@@ -118,10 +148,10 @@ const Navigation = () => {
         fullNavigation ? "w-[350px]" : "w-[90px]"
       } transition-all duration-[500ms] ease-in-out rounded-2xl text-[#000] bg-[#fff8f8] flex flex-col justify-between`}
     >
-        <div className="flex justify-around bg-[white] p-[10px] rounded-t-2xl">
-          <LogoIcon />
-        </div>
-      <div className="flex flex-col gap-3 py-2 menu-list-container overflow-y-scroll overflow-x-hidden">
+      <div className="flex justify-around bg-[white] p-[10px] rounded-t-2xl">
+        <LogoIcon />
+      </div>
+      <div className="flex flex-col gap-3 py-2 menu-list-container">
         <div className="flex flex-col gap-2">
           {routeNav?.map((nav) => (
             <div key={nav?.name}>
