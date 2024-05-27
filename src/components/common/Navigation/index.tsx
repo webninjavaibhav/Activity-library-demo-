@@ -152,7 +152,7 @@ const Navigation = () => {
         <LogoIcon />
       </div>
       <div className="flex flex-col gap-3 py-2 menu-list-container">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-[4px]">
           {routeNav?.map((nav) => (
             <div key={nav?.name}>
               <div
@@ -231,7 +231,7 @@ const Navigation = () => {
         >
           <Icons.rightArrow
             sx={{
-              fontSize: 35,
+              fontSize: 30,
               cursor: "pointer",
               color: "white",
               backgroundColor: "#12D3CF",

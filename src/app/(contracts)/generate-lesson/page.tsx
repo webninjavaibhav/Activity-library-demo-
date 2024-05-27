@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useDropzone } from "react-dropzone";
 import ReactMarkdown from "react-markdown";
 import { useState, useRef, useEffect, FormEvent } from "react";
-import { Avatar, Chip } from "@mui/material";
+import { Avatar } from "@mui/material";
 import Icons from "@/components/common/Icons";
 import Input from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
@@ -110,15 +110,14 @@ const GenerateLesson = () => {
 
   return (
     <>
-      <div className="h-full rounded-xl p-5">
+      <div className="h-full rounded-xl">
         <main className="relative">
           <div className="text-center pb-2">
             <div className="font-bold text-lg">
               Empowered AI PMM Content Generator
             </div>
           </div>
-
-          <div className="w-full bg-white rounded-lg p-4 overflow-hidden h-[88vh] pt-2 overflow-y-scroll flex justify-center items-center">
+          <div className="w-full bg-white rounded-lg p-4 overflow-hidden h-[88vh]  pt-2 overflow-y-scroll flex justify-center items-center">
             <div
               ref={messageListRef}
               className="w-full overflow-y-scroll h-full pb-[200px] "
@@ -126,13 +125,14 @@ const GenerateLesson = () => {
               {messages.map((message, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex p-2 justify-between">
+                    <div className="flex px-2 justify-between">
                       <div className="flex gap-3">
                         {message.role === "assistant" ? (
                           <Avatar
                             sx={{
                               width: 24,
                               height: 24,
+                              marginTop:'16px',
                             }}
                           >
                             <Image src={VirtualAssistance} alt="Assistant" />
@@ -142,13 +142,14 @@ const GenerateLesson = () => {
                             sx={{
                               width: 28,
                               height: 28,
+                              marginTop:'14px',
                             }}
                           >
                             <Image src={UserImage} alt="User" layout="fill" />
                           </Avatar>
                         )}
                         <div className="block max-w-[calc(100vw_-_290px)] ">
-                          <ReactMarkdown className="mx-2">
+                          <ReactMarkdown className="mx-2 markdown">
                             {message.content}
                           </ReactMarkdown>
                           <SelectedFiles
@@ -158,7 +159,7 @@ const GenerateLesson = () => {
                         </div>
                       </div>
                       {message.role === "assistant" && index ? (
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 mt-[16px]">
                           <Icons.launch
                             onClick={() =>
                               window.open(

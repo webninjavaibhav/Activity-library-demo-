@@ -7,7 +7,10 @@ type previewProp = {
   deleteFile: (e: any) => void | undefined,
 }
 
-const SelectedFiles = ({ acceptedFiles , isDeletable , deleteFile}: previewProp) => {
+const SelectedFiles = ({ acceptedFiles = false , isDeletable , deleteFile}: previewProp) => {
+  if(acceptedFiles){
+    return null
+  } 
   return (
     <div className="flex p-2 overflow-auto">
       {acceptedFiles.map((file: any) => {
