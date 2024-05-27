@@ -8,11 +8,8 @@ type previewProp = {
 }
 
 const SelectedFiles = ({ acceptedFiles = false , isDeletable , deleteFile}: previewProp) => {
-  if(acceptedFiles){
-    return null
-  } 
   return (
-    <div className="flex p-2 overflow-auto">
+    <div className="flex overflow-auto">
       {acceptedFiles.map((file: any) => {
         let url = URL.createObjectURL(file);
         return (
