@@ -4,7 +4,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const data: string = await req.json();
     const f1: any = { prompt: data };
-    let baseUrl ="http://ec2-34-239-254-199.compute-1.amazonaws.com:3002/openai";
+    let baseUrl ="http://ec2-54-88-28-17.compute-1.amazonaws.com:3002/openai";
     const response: any = await fetch(baseUrl, {
       method: "POST",
       body: JSON.stringify(f1),
