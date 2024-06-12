@@ -1,6 +1,6 @@
 type InputProps = {
-  name : string;
-  type: string;
+  name?: string;
+  type?: string;
   value: string;
   label?: string;
   placeholder: string;
