@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   icons : {
     icon : './icon.svg'
   }
-  // description: "Summary of selected contracts",
 };
 
 export default function RootLayout({
