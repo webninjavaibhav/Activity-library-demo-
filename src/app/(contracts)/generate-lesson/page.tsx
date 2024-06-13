@@ -202,6 +202,7 @@ const GenerateLesson = () => {
               </div>
               <Input
                 name="message"
+                type="message"
                 value={userInput}
                 placeholder="Enter message"
                 handleInput={(e: React.BaseSyntheticEvent) =>
