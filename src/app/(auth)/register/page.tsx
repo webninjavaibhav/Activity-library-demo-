@@ -10,7 +10,6 @@ import { subjectOptions } from "./constants/constants";
 export default function Home() {
   const { formValues, handleChange, handleSubmit, router } = useSignUp();
 
-  console.log(formValues, "formValues");
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="max-w-3xl w-full py-2 bg-white rounded-lg shadow-lg">
