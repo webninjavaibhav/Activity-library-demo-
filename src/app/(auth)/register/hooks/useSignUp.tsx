@@ -2,22 +2,42 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type FormProps = {
-  subject: string;
-  role: string;
-  username: string;
+  firstName: string;
   lastName: string;
-  email: string;
+  middleName: string;
+  Sex: string;
+  Email: string;
+  secondEmail: string;
+  employee: string | number | boolean; // boolean
+  address: string;
+  zipcode: string;
+  Martialstatus: string;
+  mothername: string;
+  fathername: string;
+  city: string;
+  country: string;
+  state: string;
 };
 
 const useSignUp = () => {
   const router = useRouter();
 
   const [formValues, setFormValues] = useState<FormProps>({
-    subject: "science",
-    role: "principle",
-    username: "",
+    firstName: "",
     lastName: "",
-    email: "",
+    middleName: "",
+    Sex: "",
+    Email: "",
+    secondEmail: "",
+    employee: "", // boolean
+    address: "",
+    zipcode: "",
+    Martialstatus: "",
+    mothername: "",
+    fathername: "",
+    city: "",
+    country: "",
+    state: "",
   });
 
   const handleSubmit = async (e: React.BaseSyntheticEvent) => {

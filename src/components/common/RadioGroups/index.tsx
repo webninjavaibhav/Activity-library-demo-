@@ -8,16 +8,12 @@ import {
 
 type RadioGroupProps = {
   label: string;
-  value: string;
+  value: string | number | boolean;
   name: string;
-  options: { value: string; label: string }[];
+  options: { value: string | boolean; label: string }[];
   handleChange: (e: React.BaseSyntheticEvent) => void;
 };
 
-type OptionProp = {
-  value: string | number;
-  label: string;
-};
 
 const RadioGroups: React.FC<RadioGroupProps> = ({
   label,
@@ -37,12 +33,12 @@ const RadioGroups: React.FC<RadioGroupProps> = ({
         name={name}
         onChange={handleChange}
       >
-        {options.map((option: OptionProp) => (
+        {options.map((option , index) => (
           <FormControlLabel
             sx={{
               fontSize: "10px",
             }}
-            key={option.value}
+            key={index}
             value={option.value}
             control={
               <Radio

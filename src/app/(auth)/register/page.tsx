@@ -5,14 +5,15 @@ import Input from "@/components/common/Input";
 import LogoIcon from "../../../../public/images/logo";
 import { Button } from "@/components/common/Button";
 import RadioGroups from "@/components/common/RadioGroups";
-import { roleOptions, subjectOptions } from "./constants/constants";
+import { subjectOptions } from "./constants/constants";
 
 export default function Home() {
   const { formValues, handleChange, handleSubmit, router } = useSignUp();
 
+  console.log(formValues, "formValues");
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="max-w-md w-full py-2 bg-white rounded-lg shadow-lg">
+      <div className="max-w-3xl w-full py-2 bg-white rounded-lg shadow-lg">
         <div className="flex p-2 items-center justify-center">
           <LogoIcon className="h-[40px]" />
           <h1 className="text-xl text-[#001239] font-bold font-mono tracking-widest">
@@ -22,54 +23,148 @@ export default function Home() {
         <Divider className="my-2" />
         <div className="text-center text-pretty p-3">Sign up</div>
         <form onSubmit={handleSubmit} className="px-6">
-          <div className="mb-4">
-            <Input
-              type="name"
-              name="username"
-              label="First Name"
-              value={formValues.username}
-              placeholder="First name"
-              handleInput={handleChange}
-            />
+          <div className=" grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <Input
+                type="name"
+                name="firstName"
+                label="First Name"
+                value={formValues.firstName}
+                placeholder="First name"
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Last Name"
+                name="lastName"
+                placeholder="Last name"
+                value={formValues.lastName}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Middle Name"
+                name="middleName"
+                placeholder="Middle name"
+                value={formValues.middleName}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="email"
+                label="Email"
+                name="Email"
+                placeholder="Primary email"
+                value={formValues.Email}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="email"
+                label="Email"
+                name="secondEmail"
+                placeholder="Secondry email"
+                value={formValues.secondEmail}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <RadioGroups
+                name="employee"
+                label="Currently employed ?"
+                value={formValues.employee}
+                options={subjectOptions}
+                handleChange={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="address"
+                label="Address"
+                name="address"
+                placeholder="Address"
+                value={formValues.address}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="zipcode"
+                label="Zip code"
+                name="zipcode"
+                placeholder="Zip code"
+                value={formValues.zipcode}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Martial status"
+                name="Martialstatus"
+                placeholder="Martial status"
+                value={formValues.Martialstatus}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Mother name"
+                name="mothername"
+                placeholder="Mother name"
+                value={formValues.mothername}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Father name"
+                name="fathername"
+                placeholder="Father name"
+                value={formValues.fathername}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="City"
+                name="city"
+                placeholder="City"
+                value={formValues.city}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Country"
+                name="country"
+                placeholder="Country"
+                value={formValues.country}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="State"
+                name="state"
+                placeholder="State"
+                value={formValues.state}
+                handleInput={handleChange}
+              />
+            </div>
           </div>
-          <div className="mb-4">
-            <Input
-              type="name"
-              label="Last Name"
-              name="lastName"
-              placeholder="Last name"
-              value={formValues.lastName}
-              handleInput={handleChange}
-            />
-          </div>
-          <div className="mb-4">
-            <Input
-              type="email"
-              label="Email"
-              name="email"
-              placeholder="Email"
-              value={formValues.email}
-              handleInput={handleChange}
-            />
-          </div>
-          <div className="mb-4">
-            <RadioGroups
-              name="subject"
-              label="Subject taught"
-              value={formValues.subject}
-              options={subjectOptions}
-              handleChange={handleChange}
-            />
-          </div>
-          <div className="mb-4">
-            <RadioGroups
-              name="role"
-              label="What is your current role in education?"
-              value={formValues.role}
-              options={roleOptions}
-              handleChange={handleChange}
-            />
-          </div>
+
           <Button
             type="submit"
             variant="contained"
