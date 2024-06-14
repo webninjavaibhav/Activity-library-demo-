@@ -1,6 +1,6 @@
 "use client";
 import Icons from "@/components/common/Icons";
-import { IconButton, Tooltip } from "@mui/material";
+import { IconButton, LinearProgress, Tooltip } from "@mui/material";
 import { columns, header } from "./constants/columns";
 import useUsers from "./hooks/useUsers";
 import CustomModal from "@/components/common/CustomModal";
@@ -18,6 +18,7 @@ const Users = () => {
     setUserInfo,
     deleteUser,
     updateUserInfo,
+    isFetching,
   } = useUsers();
 
   return (
@@ -29,14 +30,15 @@ const Users = () => {
         <div className="mx-2 text-gray-900 font-semibold">Users</div>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        {isFetching && <LinearProgress color="inherit" />}
+        <table className="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-700">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-100">
             <tr>
               {header.map((header: string, i: number) => (
                 <th
                   key={i}
                   scope="col"
-                  className="px-6 py-3"
+                  className="px-6 py-4"
                 >
                   {header}
                 </th>
@@ -49,7 +51,7 @@ const Users = () => {
               data.map((e: any, i: number) => (
                 <tr
                   key={i}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                  className="bg-white border-b"
                 >
                   {columns.map((column: string) => {
                     if (column === "action") {
@@ -66,7 +68,7 @@ const Users = () => {
                               }}
                               aria-label="edit"
                             >
-                              <Icons.editNoteIcon sx={{ color: "white" }} />
+                              <Icons.editNoteIcon />
                             </IconButton>
                           </Tooltip>
 
@@ -109,6 +111,7 @@ const Users = () => {
           <CustomModal closeModal={handleModal}>
             <EditUser
               user={userInfo}
+              isLoading={isFetching}
               updateUser={updateUserInfo}
               closeModal={handleModal}
             />
@@ -119,6 +122,7 @@ const Users = () => {
           <CustomModal closeModal={handleModal}>
             <DeleteUser
               user={userInfo}
+              isLoading={isFetching}
               deleteUser={deleteUser}
               closeModal={handleModal}
             />

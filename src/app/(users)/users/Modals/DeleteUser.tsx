@@ -8,9 +8,15 @@ type DeleteProps = {
   user: any;
   closeModal: (e: string) => void;
   deleteUser: (e: string) => void;
+  isLoading: boolean;
 };
 
-const DeleteUser = ({ user, closeModal, deleteUser }: DeleteProps) => {
+const DeleteUser = ({
+  user,
+  closeModal,
+  deleteUser,
+  isLoading,
+}: DeleteProps) => {
   return (
     <>
       <div className="">
@@ -30,6 +36,7 @@ const DeleteUser = ({ user, closeModal, deleteUser }: DeleteProps) => {
           variant="outlined"
           color="primary"
           endIcon={<Icons.cancel />}
+          disabled={isLoading}
         >
           Cancel
         </Button>
@@ -38,6 +45,7 @@ const DeleteUser = ({ user, closeModal, deleteUser }: DeleteProps) => {
           variant="contained"
           color="error"
           startIcon={<Icons.delete />}
+          disabled={isLoading}
         >
           Delete
         </Button>

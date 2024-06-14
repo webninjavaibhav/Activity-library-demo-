@@ -29,8 +29,6 @@ export async function DELETE(
       status: 200,
     });
   } catch (err) {
-    console.log("parserd ", err);
-
     return NextResponse.json({
       message: "Something went wrong !",
       status: 500,

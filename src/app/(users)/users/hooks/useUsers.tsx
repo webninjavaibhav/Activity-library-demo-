@@ -34,12 +34,13 @@ export type UserInfoProp = {
 const useUsers = () => {
   const [data, setData] = useState<UserInfoProp[]>([]);
   const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState<string>("empty");
   const [userInfo, setUserInfo] = useState<UserInfoProp>();
 
+  /* Get all the user list */
   const getAllUsers = async () => {
-    setLoading(true);
     try {
       const response = await fetch("api/get-users", {
         method: "GET",
@@ -53,7 +54,9 @@ const useUsers = () => {
     }
   };
 
+  // To delete the single user
   const deleteUser = async (id: string) => {
+    setIsFetching(true);
     try {
       const response = await fetch(`api/delete-user/${id}`, {
         method: "DELETE",
@@ -68,12 +71,15 @@ const useUsers = () => {
       }
     } catch (err) {
       toast.error("Something went wrong !");
+    } finally {
+      setIsFetching(false);
     }
   };
 
+  // handle modal state
   const handleModal = (e: string) => setOpenModal(e);
 
-  // update the user
+  // to update the user
   const updateUserInfo = async (user: FormProps, id: string) => {
     const formate = {
       profile: {
@@ -82,7 +88,6 @@ const useUsers = () => {
     };
 
     let f1 = { data: formate, id: id };
-    setLoading(true);
 
     try {
       const response = await fetch(`api/update-user`, {
@@ -100,11 +105,12 @@ const useUsers = () => {
     } catch (err) {
       toast.error("something went wrong!");
     } finally {
-      setLoading(false);
+      setIsFetching(false);
     }
   };
 
   useEffect(() => {
+    setLoading(true);
     getAllUsers();
   }, []);
 
@@ -118,6 +124,7 @@ const useUsers = () => {
     setUserInfo,
     deleteUser,
     updateUserInfo,
+    isFetching,
   };
 };
 

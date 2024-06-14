@@ -5,14 +5,16 @@ import { Button } from "@/components/common/Button";
 import RadioGroups from "@/components/common/RadioGroups";
 import { subjectOptions } from "@/app/(auth)/register/constants/constants";
 import useEditUser, { FormProps } from "../hooks/useEditUser";
+import Icons from "@/components/common/Icons";
 
 type EditPorps = {
   user: any;
   updateUser: (e: FormProps, id: string) => void;
   closeModal: (e: string) => void;
+  isLoading: boolean;
 };
 
-function EditUser({ user, updateUser, closeModal }: EditPorps) {
+function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
   const { formValues, handleChange } = useEditUser(user.profile);
 
   return (
@@ -177,18 +179,18 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <Button
             onClick={() => closeModal("empty")}
             variant="outlined"
-            color="primary"
-            fullWidth
-            className="bg-black mb-4 text-white font-bold hover:bg-black p-2 cursor-pointer flex items-center gap-1"
+            className="bg-white mb-4 text-black font-bold hover:bg-white p-2 cursor-pointer flex items-center gap-1"
+            endIcon={<Icons.cancel />}
+            disabled={isLoading}
           >
             Cancel
           </Button>
           <Button
             type="submit"
             variant="contained"
-            color="primary"
-            fullWidth
             className="bg-black mb-4 text-white font-bold hover:bg-black p-2 cursor-pointer flex items-center gap-1"
+            endIcon={<Icons.delete />}
+            disabled={isLoading}
           >
             Update
           </Button>
