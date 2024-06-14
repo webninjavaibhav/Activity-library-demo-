@@ -1,11 +1,11 @@
-'use client';
-import { Divider } from '@mui/material';
-import useSignUp from './hooks/useSignUp';
-import Input from '@/components/common/Input';
-import LogoIcon from '../../../../public/images/logo';
-import { Button } from '@/components/common/Button';
-import RadioGroups from '@/components/common/RadioGroups';
-import { subjectOptions } from './constants/constants';
+"use client";
+import { Divider } from "@mui/material";
+import useSignUp from "./hooks/useSignUp";
+import Input from "@/components/common/Input";
+import { Button } from "@/components/common/Button";
+import LogoIcon from "../../../../public/images/logo";
+import RadioGroups from "@/components/common/RadioGroups";
+import { subjectOptions } from "./constants/constants";
 
 export default function Home() {
   const { formValues, handleChange, handleSubmit, router } = useSignUp();
@@ -178,14 +178,14 @@ export default function Home() {
           </Button>
           <Divider className="my-2" />
           <div className=" text-center decoration-sky-500/[.33] mb-2">
-            Already have an account ?{' '}
+            Already have an account ?{" "}
             <span
-              onClick={() => router.push('login')}
+              onClick={() => router.push("login")}
               className=" underline cursor-pointer text-blue-500"
             >
-              {' '}
-              Sign in{' '}
-            </span>{' '}
+              {" "}
+              Sign in{" "}
+            </span>{" "}
           </div>
         </form>
       </div>
