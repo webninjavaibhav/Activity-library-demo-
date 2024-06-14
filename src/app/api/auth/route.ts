@@ -7,7 +7,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const token = process.env.NEXT_OKTA_AUTH_TOKEN;
 
   try {
-    const response = await fetch(`${baseUrl}/api/v1/users?activate=true`, {
+    const response = await fetch(`${baseUrl}/api/v1/users?activate=false`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -17,6 +17,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       },
     });
     const parsedVal = await response.json();
+
     if (parsedVal.profile) {
       return NextResponse.json({
         message: "User created successfully",

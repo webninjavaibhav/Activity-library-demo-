@@ -25,13 +25,13 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
         }}
         className="px-6"
       >
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className=" grid grid-cols-2 gap-4 mb-4">
           <div>
             <Input
               type="name"
               name="firstName"
               label="First Name"
-              value={formValues?.firstName}
+              value={formValues.firstName}
               placeholder="First name"
               handleInput={handleChange}
             />
@@ -42,7 +42,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="Last Name"
               name="lastName"
               placeholder="Last name"
-              value={formValues?.lastName}
+              value={formValues.lastName}
               handleInput={handleChange}
             />
           </div>
@@ -52,17 +52,48 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="Middle Name"
               name="middleName"
               placeholder="Middle name"
-              value={formValues?.middleName}
+              value={formValues.middleName}
               handleInput={handleChange}
             />
           </div>
+          <div>
+            <Input
+              type="name"
+              label="Phone Number"
+              name="mobilePhone"
+              placeholder="Phone number"
+              value={formValues.mobilePhone}
+              handleInput={handleChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="name"
+              label="Father name"
+              name="fathername"
+              placeholder="Father name"
+              value={formValues.fathername}
+              handleInput={handleChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="name"
+              label="Mother name"
+              name="mothername"
+              placeholder="Mother name"
+              value={formValues.mothername}
+              handleInput={handleChange}
+            />
+          </div>
+
           <div>
             <Input
               type="email"
               label="Primary Email"
               name="email"
               placeholder="Primary email"
-              value={formValues?.email}
+              value={formValues.email}
               handleInput={handleChange}
             />
           </div>
@@ -72,7 +103,18 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="Secondary Email"
               name="secondEmail"
               placeholder="Secondry email"
-              value={formValues?.secondEmail}
+              value={formValues.secondEmail}
+              handleInput={handleChange}
+            />
+          </div>
+
+          <div>
+            <Input
+              type="zipcode"
+              label="Zip code"
+              name="zipcode"
+              placeholder="Zip code"
+              value={formValues.zipcode}
               handleInput={handleChange}
             />
           </div>
@@ -80,7 +122,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
             <RadioGroups
               name="employee"
               label="Currently employed ?"
-              value={formValues?.employee}
+              value={formValues.employee}
               options={subjectOptions}
               handleChange={handleChange}
             />
@@ -91,57 +133,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="Address"
               name="address"
               placeholder="Address"
-              value={formValues?.address}
-              handleInput={handleChange}
-            />
-          </div>
-          <div>
-            <Input
-              type="zipcode"
-              label="Zip code"
-              name="zipcode"
-              placeholder="Zip code"
-              value={formValues?.zipcode}
-              handleInput={handleChange}
-            />
-          </div>
-          <div>
-            <Input
-              type="name"
-              label="Phone Number"
-              name="mobilePhone"
-              placeholder="Phone number"
-              value={formValues?.mobilePhone}
-              handleInput={handleChange}
-            />
-          </div>
-          <div>
-            <Input
-              type="name"
-              label="Mother name"
-              name="mothername"
-              placeholder="Mother name"
-              value={formValues?.mothername}
-              handleInput={handleChange}
-            />
-          </div>
-          <div>
-            <Input
-              type="name"
-              label="Father name"
-              name="fathername"
-              placeholder="Father name"
-              value={formValues?.fathername}
-              handleInput={handleChange}
-            />
-          </div>
-          <div>
-            <Input
-              type="name"
-              label="City"
-              name="city"
-              placeholder="City"
-              value={formValues?.city}
+              value={formValues.address}
               handleInput={handleChange}
             />
           </div>
@@ -151,7 +143,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="Country"
               name="country"
               placeholder="Country"
-              value={formValues?.country}
+              value={formValues.country}
               handleInput={handleChange}
             />
           </div>
@@ -161,7 +153,17 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
               label="State"
               name="state"
               placeholder="State"
-              value={formValues?.state}
+              value={formValues.state}
+              handleInput={handleChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="name"
+              label="City"
+              name="city"
+              placeholder="City"
+              value={formValues.city}
               handleInput={handleChange}
             />
           </div>

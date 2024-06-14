@@ -58,6 +58,37 @@ export default function Home() {
             </div>
             <div>
               <Input
+                type="name"
+                label="Phone Number"
+                name="mobilePhone"
+                placeholder="Phone number"
+                value={formValues.mobilePhone}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Father name"
+                name="fathername"
+                placeholder="Father name"
+                value={formValues.fathername}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="Mother name"
+                name="mothername"
+                placeholder="Mother name"
+                value={formValues.mothername}
+                handleInput={handleChange}
+              />
+            </div>
+
+            <div>
+              <Input
                 type="email"
                 label="Primary Email"
                 name="email"
@@ -73,6 +104,17 @@ export default function Home() {
                 name="secondEmail"
                 placeholder="Secondry email"
                 value={formValues.secondEmail}
+                handleInput={handleChange}
+              />
+            </div>
+
+            <div>
+              <Input
+                type="zipcode"
+                label="Zip code"
+                name="zipcode"
+                placeholder="Zip code"
+                value={formValues.zipcode}
                 handleInput={handleChange}
               />
             </div>
@@ -97,56 +139,6 @@ export default function Home() {
             </div>
             <div>
               <Input
-                type="zipcode"
-                label="Zip code"
-                name="zipcode"
-                placeholder="Zip code"
-                value={formValues.zipcode}
-                handleInput={handleChange}
-              />
-            </div>
-            <div>
-              <Input
-                type="name"
-                label="Phone Number"
-                name="mobilePhone"
-                placeholder="Phone number"
-                value={formValues.mobilePhone}
-                handleInput={handleChange}
-              />
-            </div>
-            <div>
-              <Input
-                type="name"
-                label="Mother name"
-                name="mothername"
-                placeholder="Mother name"
-                value={formValues.mothername}
-                handleInput={handleChange}
-              />
-            </div>
-            <div>
-              <Input
-                type="name"
-                label="Father name"
-                name="fathername"
-                placeholder="Father name"
-                value={formValues.fathername}
-                handleInput={handleChange}
-              />
-            </div>
-            <div>
-              <Input
-                type="name"
-                label="City"
-                name="city"
-                placeholder="City"
-                value={formValues.city}
-                handleInput={handleChange}
-              />
-            </div>
-            <div>
-              <Input
                 type="name"
                 label="Country"
                 name="country"
@@ -162,6 +154,16 @@ export default function Home() {
                 name="state"
                 placeholder="State"
                 value={formValues.state}
+                handleInput={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                type="name"
+                label="City"
+                name="city"
+                placeholder="City"
+                value={formValues.city}
                 handleInput={handleChange}
               />
             </div>
