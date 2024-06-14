@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export type FormProps = {
   firstName: string;
@@ -41,7 +42,6 @@ const initialValues = {
 
 const useSignUp = () => {
   const router = useRouter();
-
   const [formValues, setFormValues] = useState<FormProps>(initialValues);
 
   const handleSubmit = async (e: React.BaseSyntheticEvent) => {
@@ -63,13 +63,13 @@ const useSignUp = () => {
       });
       const data = await response.json();
       if (data.status === 200) {
-        alert(data.message);
+        toast.success(data.message);
         setFormValues(initialValues);
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (err: any) {
-      alert(err | err.message);
+      toast.error(err || err.message);
     }
   };
 

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FormProps } from "./useEditUser";
+import toast from "react-hot-toast";
 
 type NTS = null | boolean | string | number | undefined;
 
@@ -59,14 +60,14 @@ const useUsers = () => {
       });
       const data = await response.json();
       if (data.status === 200) {
-        alert(data.message);
+        toast.success(data.message);
         await getAllUsers();
         setOpenModal("empty");
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (err) {
-      alert("something went wrong !");
+      toast.error("Something went wrong !");
     }
   };
 
@@ -81,6 +82,7 @@ const useUsers = () => {
     };
 
     let f1 = { data: formate, id: id };
+    setLoading(true);
 
     try {
       const response = await fetch(`api/update-user`, {
@@ -88,16 +90,17 @@ const useUsers = () => {
         body: JSON.stringify(f1),
       });
       const data = await response.json();
-
       if (data.status === 200) {
-        alert(data.message);
+        toast.success(data.message);
         await getAllUsers();
         setOpenModal("empty");
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (err) {
-      alert("something went wrong!");
+      toast.error("something went wrong!");
+    } finally {
+      setLoading(false);
     }
   };
 

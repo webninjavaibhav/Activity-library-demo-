@@ -13,6 +13,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
         "Content-Type": "application/json",
         Authorization: `SSWS ${token}`,
       },
+      cache: 'no-store' 
     });
     const parsedVal = await response.json();
 

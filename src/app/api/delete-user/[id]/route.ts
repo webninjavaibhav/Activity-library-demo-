@@ -22,22 +22,15 @@ export async function DELETE(
         Authorization: `SSWS ${token}`,
       },
     });
-    const parsed = await response.json();
 
-    if(parsed.errorSummary){
-      return NextResponse.json({
-        message: parsed.errorSummary,
-        data: parsed,
-        status: 400,
-      });
-    }else{
-      return NextResponse.json({
-        message: "User deleted successfully",
-        data: parsed,
-        status: 200,
-      });
-    }
+    return NextResponse.json({
+      message: "User deleted successfully",
+      data: response,
+      status: 200,
+    });
   } catch (err) {
+    console.log("parserd ", err);
+
     return NextResponse.json({
       message: "Something went wrong !",
       status: 500,
