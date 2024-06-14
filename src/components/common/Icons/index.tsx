@@ -21,12 +21,14 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import LogoutIcon from "@mui/icons-material/Logout";
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import DownloadIcon from '@mui/icons-material/Download';
-import CancelIcon from '@mui/icons-material/Cancel';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AttachFileIcon from "@mui/icons-material/AttachFile";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DownloadIcon from "@mui/icons-material/Download";
+import CancelIcon from "@mui/icons-material/Cancel";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 
 export default {
   analysisIcon: AnalyticsIcon,
@@ -52,10 +54,12 @@ export default {
   settingIcon: SettingsIcon,
   customerIcon: SupportAgentIcon,
   logoutIcon: LogoutIcon,
-  attachFileIcon : AttachFileIcon,
-  generateLessonIcon : AutoStoriesIcon,
-  copyIcon :ContentCopyIcon,
-  download : DownloadIcon,
-  cancel : CancelIcon,
-  launch : RocketLaunchIcon
+  attachFileIcon: AttachFileIcon,
+  generateLessonIcon: AutoStoriesIcon,
+  copyIcon: ContentCopyIcon,
+  download: DownloadIcon,
+  cancel: CancelIcon,
+  launch: RocketLaunchIcon,
+  delete: DeleteForeverIcon,
+  editNoteIcon: EditNoteRoundedIcon,
 };

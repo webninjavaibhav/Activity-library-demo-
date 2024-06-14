@@ -1,11 +1,11 @@
-"use client";
-import { Divider } from "@mui/material";
-import useSignUp from "./hooks/useSignUp";
-import Input from "@/components/common/Input";
-import LogoIcon from "../../../../public/images/logo";
-import { Button } from "@/components/common/Button";
-import RadioGroups from "@/components/common/RadioGroups";
-import { subjectOptions } from "./constants/constants";
+'use client';
+import { Divider } from '@mui/material';
+import useSignUp from './hooks/useSignUp';
+import Input from '@/components/common/Input';
+import LogoIcon from '../../../../public/images/logo';
+import { Button } from '@/components/common/Button';
+import RadioGroups from '@/components/common/RadioGroups';
+import { subjectOptions } from './constants/constants';
 
 export default function Home() {
   const { formValues, handleChange, handleSubmit, router } = useSignUp();
@@ -21,7 +21,10 @@ export default function Home() {
         </div>
         <Divider className="my-2" />
         <div className="text-center text-pretty p-3">Sign up</div>
-        <form onSubmit={handleSubmit} className="px-6">
+        <form
+          onSubmit={handleSubmit}
+          className="px-6"
+        >
           <div className=" grid grid-cols-2 gap-4 mb-4">
             <div>
               <Input
@@ -56,17 +59,17 @@ export default function Home() {
             <div>
               <Input
                 type="email"
-                label="Email"
-                name="Email"
+                label="Primary Email"
+                name="email"
                 placeholder="Primary email"
-                value={formValues.Email}
+                value={formValues.email}
                 handleInput={handleChange}
               />
             </div>
             <div>
               <Input
                 type="email"
-                label="Email"
+                label="Secondary Email"
                 name="secondEmail"
                 placeholder="Secondry email"
                 value={formValues.secondEmail}
@@ -105,10 +108,10 @@ export default function Home() {
             <div>
               <Input
                 type="name"
-                label="Martial status"
-                name="Martialstatus"
-                placeholder="Martial status"
-                value={formValues.Martialstatus}
+                label="Phone Number"
+                name="mobilePhone"
+                placeholder="Phone number"
+                value={formValues.mobilePhone}
                 handleInput={handleChange}
               />
             </div>
@@ -175,14 +178,14 @@ export default function Home() {
           </Button>
           <Divider className="my-2" />
           <div className=" text-center decoration-sky-500/[.33] mb-2">
-            Already have an account ?{" "}
+            Already have an account ?{' '}
             <span
-              onClick={() => router.push("login")}
+              onClick={() => router.push('login')}
               className=" underline cursor-pointer text-blue-500"
             >
-              {" "}
-              Sign in{" "}
-            </span>{" "}
+              {' '}
+              Sign in{' '}
+            </span>{' '}
           </div>
         </form>
       </div>
