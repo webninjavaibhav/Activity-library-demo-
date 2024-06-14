@@ -28,7 +28,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import CancelIcon from "@mui/icons-material/Cancel";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+import ModeEditOutlineTwoToneIcon from "@mui/icons-material/ModeEditOutlineTwoTone";
 
 export default {
   analysisIcon: AnalyticsIcon,
@@ -61,5 +61,5 @@ export default {
   cancel: CancelIcon,
   launch: RocketLaunchIcon,
   delete: DeleteForeverIcon,
-  editNoteIcon: EditNoteRoundedIcon,
+  editNoteIcon: ModeEditOutlineTwoToneIcon,
 };

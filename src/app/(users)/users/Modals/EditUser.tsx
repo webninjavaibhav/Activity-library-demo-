@@ -30,7 +30,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
             <Input
               type="name"
               name="firstName"
-              label="First Name"
+              label="First name"
               value={formValues.firstName}
               placeholder="First name"
               handleInput={handleChange}
@@ -39,7 +39,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <div>
             <Input
               type="name"
-              label="Last Name"
+              label="Last name"
               name="lastName"
               placeholder="Last name"
               value={formValues.lastName}
@@ -49,7 +49,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <div>
             <Input
               type="name"
-              label="Middle Name"
+              label="Middle name"
               name="middleName"
               placeholder="Middle name"
               value={formValues.middleName}
@@ -59,7 +59,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <div>
             <Input
               type="name"
-              label="Phone Number"
+              label="Phone number"
               name="mobilePhone"
               placeholder="Phone number"
               value={formValues.mobilePhone}
@@ -90,7 +90,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <div>
             <Input
               type="email"
-              label="Primary Email"
+              label="Primary email"
               name="email"
               placeholder="Primary email"
               value={formValues.email}
@@ -100,7 +100,7 @@ function EditUser({ user, updateUser, closeModal }: EditPorps) {
           <div>
             <Input
               type="email"
-              label="Secondary Email"
+              label="Secondary mail"
               name="secondEmail"
               placeholder="Secondry email"
               value={formValues.secondEmail}

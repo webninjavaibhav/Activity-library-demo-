@@ -6,7 +6,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   const token = process.env.NEXT_OKTA_AUTH_TOKEN;
 
   try {
-    const response = await fetch(`${baseUrl}/api/v1/users?limit=100`, {
+    const response = await fetch(`${baseUrl}/api/v1/users`, {
       method: "GET",
       headers: {
         Accept: "application/json",

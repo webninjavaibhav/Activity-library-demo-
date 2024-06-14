@@ -22,8 +22,11 @@ const Users = () => {
 
   return (
     <div className="m-4">
-      <div className=" text-3xl font-mono font-semibold text-center m-4">
-        All the profiles are available
+      <div className="pb-4 flex items-center">
+        <IconButton aria-label="delete">
+          <Icons.rightArrow sx={{ rotate: "180deg" }} />
+        </IconButton>
+        <div className="mx-2 text-gray-900 font-semibold">Users</div>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -52,7 +55,7 @@ const Users = () => {
                     if (column === "action") {
                       return (
                         <td
-                          className="flex"
+                          className="px-6 py-2 flex"
                           key={column.toString()}
                         >
                           <Tooltip title="Edit">

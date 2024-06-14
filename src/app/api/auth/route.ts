@@ -7,7 +7,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const token = process.env.NEXT_OKTA_AUTH_TOKEN;
 
   try {
-    const response = await fetch(`${baseUrl}/api/v1/users?activate=false`, {
+    const response = await fetch(`${baseUrl}/api/v1/users`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
