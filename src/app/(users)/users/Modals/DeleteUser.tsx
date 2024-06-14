@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/common/Button";
 import Icons from "@/components/common/Icons";
-import { Stack } from "@mui/material";
+import CircularLoader from "@/components/common/Loader/CircularLoader";
+import { IconButton, Stack } from "@mui/material";
 
 type DeleteProps = {
   user: any;
@@ -18,12 +19,31 @@ const DeleteUser = ({
   isLoading,
 }: DeleteProps) => {
   return (
-    <>
+    <div className="text-center p-2">
+      <div className="flex float-end">
+        <IconButton
+          onClick={() => closeModal("empty")}
+          aria-label="cross"
+          color="primary"
+          className="bg-blue-100 h-[25px] w-[25px] m-[-10px]"
+        >
+          <Icons.crossIcon fontSize="small" />
+        </IconButton>
+      </div>
+      <IconButton
+        aria-label="fingerprint"
+        color="error"
+        className="bg-red-100"
+      >
+        <Icons.warning />
+      </IconButton>
+      <div className="text-xl font-bold my-2">Delete User</div>
       <div className="">
-        Are you sure you want to delete
+        You are going to delete the <br />
         <span className=" font-bold text-red-500 text-lg">
-          {`  ${user.profile.firstName}  ${user.profile.lastName}`}
+          {`"${user.profile.firstName}  ${user.profile.lastName}"`}
         </span>
+        user . Are you sure ?
       </div>
       <Stack
         direction="row"
@@ -38,19 +58,19 @@ const DeleteUser = ({
           endIcon={<Icons.cancel />}
           disabled={isLoading}
         >
-          Cancel
+          No, Keep It.
         </Button>
         <Button
           onClick={() => deleteUser(user.id)}
           variant="contained"
           color="error"
-          startIcon={<Icons.delete />}
+          endIcon={isLoading ? <CircularLoader /> : <Icons.delete />}
           disabled={isLoading}
         >
-          Delete
+          Yes, Delete!
         </Button>
       </Stack>
-    </>
+    </div>
   );
 };
 

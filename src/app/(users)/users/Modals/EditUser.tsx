@@ -1,9 +1,10 @@
 "use client";
-import { Stack } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 import Input from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import RadioGroups from "@/components/common/RadioGroups";
 import { subjectOptions } from "@/app/(auth)/register/constants/constants";
+import CircularLoader from "@/components/common/Loader/CircularLoader";
 import useEditUser, { FormProps } from "../hooks/useEditUser";
 import Icons from "@/components/common/Icons";
 
@@ -18,14 +19,23 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
   const { formValues, handleChange } = useEditUser(user.profile);
 
   return (
-    <div className="w-full">
-      <div className="text-pretty pb-3 ps-6 font-bold text-lg">Edit user</div>
+    <div className="w-full p-3">
+      <div className="flex justify-between">
+        <div className="text-pretty pb-3 font-bold text-lg">Edit user</div>
+        <IconButton
+          onClick={() => closeModal("empty")}
+          aria-label="cross"
+          color="primary"
+          className="bg-blue-100 h-[25px] w-[25px] m-[-10px]"
+        >
+          <Icons.crossIcon fontSize="small" />
+        </IconButton>
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           updateUser(formValues, user.id);
         }}
-        className="px-6"
       >
         <div className=" grid grid-cols-2 gap-4 mb-4">
           <div>
@@ -179,8 +189,6 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
           <Button
             onClick={() => closeModal("empty")}
             variant="outlined"
-            className="bg-white mb-4 text-black font-bold hover:bg-white p-2 cursor-pointer flex items-center gap-1"
-            endIcon={<Icons.cancel />}
             disabled={isLoading}
           >
             Cancel
@@ -188,11 +196,11 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
           <Button
             type="submit"
             variant="contained"
-            className="bg-black mb-4 text-white font-bold hover:bg-black p-2 cursor-pointer flex items-center gap-1"
-            endIcon={<Icons.delete />}
+            className="bg-black px-4 mb-4 text-white font-bold hover:bg-black p-2 cursor-pointer flex items-center gap-1"
             disabled={isLoading}
           >
             Update
+            {isLoading && <CircularLoader />}
           </Button>
         </Stack>
       </form>

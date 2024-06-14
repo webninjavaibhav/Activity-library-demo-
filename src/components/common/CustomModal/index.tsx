@@ -10,7 +10,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
+  p: 2,
 };
 
 interface CustomModalProps {

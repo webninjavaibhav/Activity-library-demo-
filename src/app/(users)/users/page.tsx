@@ -6,6 +6,7 @@ import useUsers from "./hooks/useUsers";
 import CustomModal from "@/components/common/CustomModal";
 import DeleteUser from "./Modals/DeleteUser";
 import EditUser from "./Modals/EditUser";
+import Loader from "@/components/common/Loader";
 
 const Users = () => {
   const {
@@ -102,7 +103,7 @@ const Users = () => {
         </table>
         {loading || error ? (
           <div className=" text-center p-10 m-10">
-            {loading && <>Loading....</>}
+            {loading && <Loader text="Loading" />}
             {error && "Something went wrong"}
           </div>
         ) : null}

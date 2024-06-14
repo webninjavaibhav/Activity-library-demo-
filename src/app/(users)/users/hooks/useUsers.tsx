@@ -81,6 +81,7 @@ const useUsers = () => {
 
   // to update the user
   const updateUserInfo = async (user: FormProps, id: string) => {
+    setIsFetching(true);
     const formate = {
       profile: {
         ...user,
