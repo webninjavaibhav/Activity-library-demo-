@@ -5,7 +5,7 @@ import Input from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import LogoIcon from "../../../../public/images/logo";
 import RadioGroups from "@/components/common/RadioGroups";
-import { subjectOptions } from "./constants/constants";
+import { subjectOptions, genders } from "./constants/constants";
 
 export default function Home() {
   const { formValues, handleChange, handleSubmit, router } = useSignUp();
@@ -57,13 +57,12 @@ export default function Home() {
               />
             </div>
             <div>
-              <Input
-                type="name"
-                label="Phone number"
-                name="mobilePhone"
-                placeholder="Phone number"
-                value={formValues.mobilePhone}
-                handleInput={handleChange}
+              <RadioGroups
+                label="Sexual Orientation"
+                name="Sex"
+                value={formValues.Sex}
+                options={genders}
+                handleChange={handleChange}
               />
             </div>
             <div>
@@ -107,7 +106,16 @@ export default function Home() {
                 handleInput={handleChange}
               />
             </div>
-
+            <div>
+              <Input
+                type="name"
+                label="Phone number"
+                name="mobilePhone"
+                placeholder="Phone number"
+                value={formValues.mobilePhone}
+                handleInput={handleChange}
+              />
+            </div>
             <div>
               <Input
                 type="zipcode"

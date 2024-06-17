@@ -3,7 +3,10 @@ import { IconButton, Stack } from "@mui/material";
 import Input from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import RadioGroups from "@/components/common/RadioGroups";
-import { subjectOptions } from "@/app/(auth)/register/constants/constants";
+import {
+  genders,
+  subjectOptions,
+} from "@/app/(auth)/register/constants/constants";
 import CircularLoader from "@/components/common/Loader/CircularLoader";
 import useEditUser, { FormProps } from "../hooks/useEditUser";
 import Icons from "@/components/common/Icons";
@@ -37,7 +40,7 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
           updateUser(formValues, user.id);
         }}
       >
-        <div className=" grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-2 gap-4 mb-4 h-[75vh] overflow-auto">
           <div>
             <Input
               type="name"
@@ -69,13 +72,12 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
             />
           </div>
           <div>
-            <Input
-              type="name"
-              label="Phone number"
-              name="mobilePhone"
-              placeholder="Phone number"
-              value={formValues.mobilePhone}
-              handleInput={handleChange}
+            <RadioGroups
+              label="Sexual Orientation"
+              name="Sex"
+              value={formValues.Sex}
+              options={genders}
+              handleChange={handleChange}
             />
           </div>
           <div>
@@ -119,7 +121,16 @@ function EditUser({ user, updateUser, closeModal, isLoading }: EditPorps) {
               handleInput={handleChange}
             />
           </div>
-
+          <div>
+            <Input
+              type="name"
+              label="Phone number"
+              name="mobilePhone"
+              placeholder="Phone number"
+              value={formValues.mobilePhone}
+              handleInput={handleChange}
+            />
+          </div>
           <div>
             <Input
               type="zipcode"
